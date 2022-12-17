@@ -16,7 +16,7 @@ final class ChatStore: ObservableObject {
 
     func performSearch() async {
         guard !editedMessage.message.isEmpty else { return }
-        guard let openAPIKey = AppConstant.apiKey
+        let openAPIKey = AppStore.apiKey
         let openAPI = OpenAISwift(authToken: openAPIKey)
         isAnswering = true
         messages.append(editedMessage)
