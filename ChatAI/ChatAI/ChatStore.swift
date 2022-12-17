@@ -18,24 +18,31 @@ final class ChatStore: ObservableObject {
         guard !editedMessage.message.isEmpty else { return }
         let openAPIKey = Constant.apiKey
         let openAPI = OpenAISwift(authToken: openAPIKey)
-        isAnswering = true
-        messages.append(editedMessage)
-        editedMessage = Message()
-
+        DispatchQueue.main.async {
+            self.isAnswering = true
+            self.messages.append(self.editedMessage)
+            self.editedMessage = Message()
+        }
         do {
             let result = try await openAPI.sendCompletion(
                 with: editedMessage.message,
                 maxTokens: 100)
             print("Res", result)
-            var content = result.choices.map(\.text).joined()
-            content = content.trimmingCharacters(in: .whitespacesAndNewlines)
-            let newMessage = Message(content, isSender: false)
-            messages.append(newMessage)
-            isAnswering = false
+            DispatchQueue.main.async {
+                self.updateUI(result)
+            }
         } catch {
             isAnswering = false
             print(error.localizedDescription)
         }
     }
 
+    private func updateUI(_ result: OpenAI) {
+        var content = result.choices.map(\.text).joined()
+        content = content.trimmingCharacters(in: .whitespacesAndNewlines)
+        let newMessage = Message(content, isSender: false)
+
+        self.messages.append(newMessage)
+        isAnswering = false
+    }
 }
