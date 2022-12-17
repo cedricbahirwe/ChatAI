@@ -12,6 +12,9 @@
 		CB257899294DF842006AD324 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB257898294DF842006AD324 /* Assets.xcassets */; };
 		CB25789C294DF842006AD324 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CB25789B294DF842006AD324 /* Preview Assets.xcassets */; };
 		CB2578A4294E0622006AD324 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = CB2578A3294E0622006AD324 /* OpenAISwift */; };
+		CB2578A9294E1298006AD324 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2578A8294E1298006AD324 /* Message.swift */; };
+		CB2578AC294E158C006AD324 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2578AB294E158C006AD324 /* RoundedCorner.swift */; };
+		CB2578AE294E159D006AD324 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2578AD294E159D006AD324 /* MessageBubble.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		CB257896294DF842006AD324 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		CB257898294DF842006AD324 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CB25789B294DF842006AD324 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		CB2578A8294E1298006AD324 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		CB2578AB294E158C006AD324 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		CB2578AD294E159D006AD324 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,9 @@
 			children = (
 				CB257894294DF842006AD324 /* ChatAIApp.swift */,
 				CB257896294DF842006AD324 /* ContentView.swift */,
+				CB2578AD294E159D006AD324 /* MessageBubble.swift */,
+				CB2578AA294E1586006AD324 /* Helper */,
+				CB2578A5294E1291006AD324 /* Models */,
 				CB257898294DF842006AD324 /* Assets.xcassets */,
 				CB25789A294DF842006AD324 /* Preview Content */,
 			);
@@ -67,6 +76,22 @@
 				CB25789B294DF842006AD324 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CB2578A5294E1291006AD324 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CB2578A8294E1298006AD324 /* Message.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CB2578AA294E1586006AD324 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				CB2578AB294E158C006AD324 /* RoundedCorner.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,7 +170,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB2578AC294E158C006AD324 /* RoundedCorner.swift in Sources */,
 				CB257897294DF842006AD324 /* ContentView.swift in Sources */,
+				CB2578AE294E159D006AD324 /* MessageBubble.swift in Sources */,
+				CB2578A9294E1298006AD324 /* Message.swift in Sources */,
 				CB257895294DF842006AD324 /* ChatAIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
