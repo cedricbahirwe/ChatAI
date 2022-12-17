@@ -50,13 +50,6 @@
             ReferencedContainer = "container:ChatAI.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "apiKey"
-            value = "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"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"

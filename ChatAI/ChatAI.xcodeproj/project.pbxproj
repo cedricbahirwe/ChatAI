@@ -15,6 +15,7 @@
 		CB2578A9294E1298006AD324 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2578A8294E1298006AD324 /* Message.swift */; };
 		CB2578AC294E158C006AD324 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2578AB294E158C006AD324 /* RoundedCorner.swift */; };
 		CB2578AE294E159D006AD324 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2578AD294E159D006AD324 /* MessageBubble.swift */; };
+		CB2578B0294E1A6C006AD324 /* ChatStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2578AF294E1A6C006AD324 /* ChatStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		CB2578A8294E1298006AD324 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		CB2578AB294E158C006AD324 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		CB2578AD294E159D006AD324 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
+		CB2578AF294E1A6C006AD324 /* ChatStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				CB257894294DF842006AD324 /* ChatAIApp.swift */,
 				CB257896294DF842006AD324 /* ContentView.swift */,
 				CB2578AD294E159D006AD324 /* MessageBubble.swift */,
+				CB2578AF294E1A6C006AD324 /* ChatStore.swift */,
 				CB2578AA294E1586006AD324 /* Helper */,
 				CB2578A5294E1291006AD324 /* Models */,
 				CB257898294DF842006AD324 /* Assets.xcassets */,
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CB2578AC294E158C006AD324 /* RoundedCorner.swift in Sources */,
+				CB2578B0294E1A6C006AD324 /* ChatStore.swift in Sources */,
 				CB257897294DF842006AD324 /* ContentView.swift in Sources */,
 				CB2578AE294E159D006AD324 /* MessageBubble.swift in Sources */,
 				CB2578A9294E1298006AD324 /* Message.swift in Sources */,

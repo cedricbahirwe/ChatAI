@@ -6,20 +6,13 @@
 //
 
 import SwiftUI
-import OpenAISwift
 
 struct ContentView: View {
-    @State private var messages = [Message]()
-    @State private var editedMessage = Message("", isSender: true)
-    @State private var isAnswering = false
-    @Namespace var animation
-    @Environment(\.colorScheme) var colorScheme
+    @StateObject var chatStore = ChatStore()
 
     var body: some View {
         ScrollView {
-            ForEach(messages) { message in
-                MessageBubble(message: message)
-            }
+            ForEach(chatStore.messages, content: MessageBubble.init)
         }
         .padding(.horizontal)
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -33,33 +26,10 @@ struct ContentView: View {
         }
     }
 
-    private func performSearch() async {
-        guard !editedMessage.message.isEmpty else { return }
-        guard let openAPIKey = ProcessInfo.processInfo.environment["apiKey"] else { fatalError() }
-        let openAPI = OpenAISwift(authToken: openAPIKey)
-        isAnswering = true
-        messages.append(editedMessage)
-        editedMessage = Message()
-
-        do {
-            let result = try await openAPI.sendCompletion(
-                with: editedMessage.message,
-                maxTokens: 100)
-            print("Res", result)
-            var content = result.choices.map(\.text).joined()
-            content = content.trimmingCharacters(in: .whitespacesAndNewlines)
-            let newMessage = Message(content, isSender: false)
-            messages.append(newMessage)
-            isAnswering = false
-        } catch {
-            isAnswering = false
-            print(error.localizedDescription)
-        }
-    }
-
+    
     var emptyView: some View {
         Group {
-            if messages.isEmpty {
+            if chatStore.messages.isEmpty {
                 Text("Nothing here like your crush chat!")
                     .font(.title2)
                     .foregroundColor(.white)
@@ -71,17 +41,17 @@ struct ContentView: View {
     var inputField: some View {
         HStack {
             TextField.init("Enter your prompt",
-                           text: $editedMessage.message)
+                           text: $chatStore.editedMessage.message)
             .submitLabel(.go)
             .onSubmit {
-                Task { await performSearch() }
+                Task { await chatStore.performSearch() }
             }
             Spacer()
             Button {
-                Task { await performSearch() }
+                Task { await chatStore.performSearch() }
             } label: {
                 Group {
-                    if isAnswering {
+                    if chatStore.isAnswering {
                         ProgressView.init()
                             .progressViewStyle(.circular)
                     } else {
@@ -97,7 +67,7 @@ struct ContentView: View {
                 .frame(width: 40)
                 .background(.blue)
                 .clipShape(Circle())
-                .disabled(isAnswering)
+                .disabled(chatStore.isAnswering)
             }
         }
         .padding()
