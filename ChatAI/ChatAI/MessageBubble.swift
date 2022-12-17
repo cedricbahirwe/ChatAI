@@ -20,6 +20,7 @@ struct MessageBubble: View {
             .cornerRadius(20,
                           corners: corners())
             .frame(maxWidth: .infinity, alignment: alignment)
+            .padding(message.isSender ? .leading : .trailing, 30)
     }
 
     func corners() -> UIRectCorner {
