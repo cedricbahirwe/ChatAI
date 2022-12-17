@@ -35,7 +35,8 @@ struct ContentView: View {
 
     private func performSearch() async {
         guard !editedMessage.message.isEmpty else { return }
-        let openAPI = OpenAISwift(authToken: "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")
+        guard let openAPIKey = ProcessInfo.processInfo.environment["apiKey"] else { fatalError() }
+        let openAPI = OpenAISwift(authToken: openAPIKey)
         isAnswering = true
         messages.append(editedMessage)
         editedMessage = Message()
